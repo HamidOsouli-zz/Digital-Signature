@@ -1,0 +1,16 @@
+{
+  "name": "dgital-signature",
+  "version": "1.0.0",
+  "description": "simple implementation of Digital Signature using Public Key Cryptography and Crypto",
+  "author": "Hamid Osouli <hamidosouli76@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "qrcode": "^1.4.4"
+  },
+  "scripts": {
+    "generate": "openssl genpkey -algorithm RSA -pkeyopt rsa_keygen_bits:4096 -pkeyopt rsa_keygen_pubexp:3 -out keys/privateKey.pem && openssl pkey -in keys/privateKey.pem -out keys/publicKey.pem -pubout",
+    "sign": "node sign.js",
+    "verify": "node verify.js",
+    "qr": "node QRcode.js"
+  }
+}
